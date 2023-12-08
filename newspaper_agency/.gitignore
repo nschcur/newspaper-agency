@@ -1,8 +1,7 @@
 # created by virtualenv automatically
+__pycache__/
+.idea/
+.cache
 db.sqlite3
-newspaper_agency/__pycache__/
-topic/__pycache__/
-topic/migrations/__pycache__/
-venv/
-.idea
+.venv
 
