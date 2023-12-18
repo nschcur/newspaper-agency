@@ -6,8 +6,8 @@ from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 
-from newspaper.models import Redactor, Topic, Newspaper
-from newspaper.forms import (
+from topic.models import Redactor, Topic, Newspaper
+from topic.forms import (
     LoginForm,
     SignUpForm,
     RedactorCreationForm,
