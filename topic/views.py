@@ -33,7 +33,7 @@ def login_view(request):
             else:
                 msg = 'Invalid credentials'
 
-    return render(request, "accounts/login.html", {"form": form, "msg": msg})
+    return render(request, "registration/login.html", {"form": form, "msg": msg})
 
 
 def register_user(request):
@@ -58,7 +58,7 @@ def register_user(request):
 
     return render(
         request,
-        "accounts/register.html",
+        "registration/register.html",
         {"form": form, "msg": msg, "success": success}
     )
 
