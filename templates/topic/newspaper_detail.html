@@ -17,18 +17,18 @@
     </a>
   <h3>{{ newspaper.title }}</h3>
       <br>
-    <a href="{% url 'newspaper:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
+    <a href="{% url 'newspaper_agency:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
       Delete newspaper
     </a>
 
-    <a href="{% url 'newspaper:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary link-to-page">
+    <a href="{% url 'newspaper_agency:newspaper-update' pk=newspaper.id %}" class="btn btn-secondary link-to-page">
       Update newspaper
     </a>
 
      <br>
     </section>
     <p><strong>post date: {{ newspaper.published_date }}</strong></p>
-     <p><strong>topic:  <a href="{% url 'newspaper:topic-detail' pk=newspaper.topic.id %}">{{ newspaper.topic }}</a></strong>
+     <p><strong>topic:  <a href="{% url 'newspaper_agency:topic-detail' pk=newspaper.topic.id %}">{{ newspaper.topic }}</a></strong>
 
 
 

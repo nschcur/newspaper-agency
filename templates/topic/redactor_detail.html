@@ -41,9 +41,9 @@
 
     {% for newspaper in redactor.newspaper_redactors.all %}
         <hr>
-        <p><a href="{% url 'newspaper:newspaper-detail' pk=newspaper.id %} "><strong> {{ newspaper.title }}</strong></a>
+        <p><a href="{% url 'newspaper_agency:newspaper-detail' pk=newspaper.id %} "><strong> {{ newspaper.title }}</strong></a>
 
-          <a href="{% url 'newspaper:topic-detail' pk=newspaper.topic.id %} "><strong>( {{ newspaper.topic }})</strong></a>
+          <a href="{% url 'newspaper_agency:topic-detail' pk=newspaper.topic.id %} "><strong>( {{ newspaper.topic }})</strong></a>
         </p>
 
     {% empty %}

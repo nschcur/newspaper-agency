@@ -12,7 +12,7 @@
   <div class="card card-body blur shadow-blur mx-3 mx-lg-4 mt-n1"  >
     <section class="my-4 py-4" >
 
-          <a style="float:right"  href="{% url 'newspaper:topic-list' %}" class="btn btn-primary link-to-page">
+          <a style="float:right"  href="{% url 'newspaper_agency:topic-list' %}" class="btn btn-primary link-to-page">
       back to topics list
     </a>
         <h2>
@@ -32,7 +32,7 @@
     {% for news in topic.subjects.all|slice:"10" %}
       <tr>
 
-        <td><a href="{% url 'newspaper:newspaper-detail' pk=news.id %}">{{ news.title }}</a></td>
+        <td><a href="{% url 'newspaper_agency:newspaper-detail' pk=news.id %}">{{ news.title }}</a></td>
         <td>{{ news.publishers }}</td>
          <td>{{ news.published_date }}</td>
       </tr>
