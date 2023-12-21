@@ -26,23 +26,23 @@
                       <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
                         Pages
                       </h6>
-                      <a href="{% url 'topic:redactor-list' %}" class="dropdown-item border-radius-md">
+                      <a href="{% url 'newspaper_agency:redactor-list' %}" class="dropdown-item border-radius-md">
                         <span>Redactor list</span>
                       </a>
-                      <a href="{% url 'topic:topic-list'%}" class="dropdown-item border-radius-md">
+                      <a href="{% url 'newspaper_agency:topic-list'%}" class="dropdown-item border-radius-md">
 
                         <span>Topic list</span>
                       </a>
-                      <a href="{% url 'topic:newspaper-list'%}" class="dropdown-item border-radius-md">
+                      <a href="{% url 'newspaper_agency:newspaper-list'%}" class="dropdown-item border-radius-md">
                         <span>Newspaper list</span>
                       </a>
                       <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
                         Account
                       </h6>
-                      <a href="{% url 'topic:login' %}" class="dropdown-item border-radius-md">
+                      <a href="{% url 'newspaper_agency:login' %}" class="dropdown-item border-radius-md">
                         <span>Sign In</span>
                       </a>
-                      <a href="{% url 'topic:register' %}" class="dropdown-item border-radius-md">
+                      <a href="{% url 'newspaper_agency:register' %}" class="dropdown-item border-radius-md">
                         <span>Register</span>
                       </a>
                     </div>
@@ -53,13 +53,13 @@
                 {% if request.user.is_authenticated %}
                 <ul class="sidebar-nav list-group" >
                     <a
-                        href="{% url 'newspaper:redactor-detail' pk=user.id %} ">
+                        href="{% url 'newspaper_agency:redactor-detail' pk=user.id %} ">
                       {{ user.get_username }}
                     </a>
 
 
                     <a
-                      href="{% url 'newspaper:logout' %}">
+                      href="{% url 'newspaper_agency:logout' %}">
                       <i class="fa fa-sign-out me-1"></i>
                       <p class="d-inline text-sm font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign OUT">Logout</p>
                     </a>

@@ -83,7 +83,7 @@ def index(request: HttpRequest) -> HttpResponse:
         "list_newspaper": list_newspaper,
     }
 
-    return render(request, "home/index.html", context=context)
+    return render(request, "topic/index.html", context=context)
 
 
 class RedactorListView(LoginRequiredMixin, generic.ListView):
