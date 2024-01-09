@@ -6,9 +6,9 @@ from .models import Topic, Redactor, Newspaper
 
 @admin.register(Newspaper)
 class NewspaperAdmin(admin.ModelAdmin):
-    list_display = ('title', 'publish_date', 'topic')
-    list_filter = ('publish_date', 'topic')
-    search_fields = ('title', 'content')
+    list_display = ("title", "publish_date", "topic")
+    list_filter = ("publish_date", "topic")
+    search_fields = ("title", "content")
 
 
 @admin.register(Redactor)
