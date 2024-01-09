@@ -8,58 +8,42 @@ from topic.models import Redactor, Newspaper, Topic
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
-            attrs={
-                "placeholder": "Username",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Username", "class": "form-control"}
+        )
+    )
     password = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={
-                "placeholder": "Password",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Password", "class": "form-control"}
+        )
+    )
 
 
 class SignUpForm(UserCreationForm):
-
     username = forms.CharField(
         widget=forms.TextInput(
-            attrs={
-                "placeholder": "Username",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Username", "class": "form-control"}
+        )
+    )
     email = forms.EmailField(
-        widget=forms.EmailInput(
-            attrs={
-                "placeholder": "Email",
-                "class": "form-control"
-            }
-        ))
+        widget=forms.EmailInput(attrs={"placeholder": "Email", "class": "form-control"})
+    )
     password1 = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={
-                "placeholder": "Password",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Password", "class": "form-control"}
+        )
+    )
     password2 = forms.CharField(
         widget=forms.PasswordInput(
-            attrs={
-                "placeholder": "Password check",
-                "class": "form-control"
-            }
-        ))
+            attrs={"placeholder": "Password check", "class": "form-control"}
+        )
+    )
 
     class Meta:
         model = get_user_model()
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ("username", "email", "password1", "password2")
 
 
 class NewspaperAdminForm(forms.ModelForm):
-
     publishers = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
@@ -74,7 +58,9 @@ class RedactorCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Redactor
         fields = UserCreationForm.Meta.fields + (
-            "years_of_experience", "first_name", "last_name",
+            "years_of_experience",
+            "first_name",
+            "last_name",
         )
 
 
@@ -106,5 +92,9 @@ class NewspaperSearchForm(forms.Form):
         max_length=255,
         required=True,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search by title", })
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by title",
+            }
+        ),
     )

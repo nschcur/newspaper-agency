@@ -12,7 +12,8 @@ from topic.forms import (
     SignUpForm,
     RedactorCreationForm,
     NewspaperForm,
-    NewspaperSearchForm, RedactorUpdateForm
+    NewspaperSearchForm,
+    RedactorUpdateForm,
 )
 
 
@@ -22,7 +23,6 @@ def login_view(request):
     msg = None
 
     if request.method == "POST":
-
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
@@ -31,7 +31,7 @@ def login_view(request):
                 login(request, user)
                 return redirect("/")
             else:
-                msg = 'Invalid credentials'
+                msg = "Invalid credentials"
 
     return render(request, "registration/login.html", {"form": form, "msg": msg})
 
@@ -48,24 +48,23 @@ def register_user(request):
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=username, password=raw_password)
 
-            msg = 'Account created successfully.'
+            msg = "Account created successfully."
             success = True
 
         else:
-            msg = 'Form is not valid'
+            msg = "Form is not valid"
     else:
         form = SignUpForm()
 
     return render(
         request,
         "registration/register.html",
-        {"form": form, "msg": msg, "success": success}
+        {"form": form, "msg": msg, "success": success},
     )
 
 
-@login_required(login_url='/login/')
+@login_required(login_url="/login/")
 def index(request: HttpRequest) -> HttpResponse:
-
     num_redactors = Redactor.objects.count()
     num_topics = Topic.objects.count()
     num_newspaper = Newspaper.objects.count()
@@ -93,9 +92,7 @@ class RedactorListView(LoginRequiredMixin, generic.ListView):
 
 class RedactorDetailView(LoginRequiredMixin, generic.DetailView):
     model = Redactor
-    queryset = Redactor.objects.prefetch_related(
-        "newspaper_redactors__publishers"
-    )
+    queryset = Redactor.objects.prefetch_related("newspaper_redactors__publishers")
 
 
 class RedactorCreateView(LoginRequiredMixin, generic.CreateView):
@@ -150,9 +147,7 @@ class NewspaperListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(NewspaperListView, self).get_context_data(**kwargs)
         title = self.request.GET.get("title", "")
-        context["search_form"] = NewspaperSearchForm(
-            initial={"title": title}
-        )
+        context["search_form"] = NewspaperSearchForm(initial={"title": title})
         return context
 
     def get_queryset(self):
